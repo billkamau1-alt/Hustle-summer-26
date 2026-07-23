@@ -109,6 +109,43 @@ item2.action()  # Output: Using the add-on: extra graphics
 
 
 
+class cars:
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+
+    def set_price(self, price):
+        if price < 500:
+            print("no")
+        else:
+            self.price = price
+
+item3 = cars("Scion TC", 1000)
+item3.set_price(400)
+if item3.price < 500:
+    print("second hand")
+else:
+    print("first hand")
+
+
+
+class colours:
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+
+    def set_price(self, price):
+        if price < 100:
+            print("Affordable")
+        else:
+            self.price = price
+
+item4 = colours("Blue", 200)
+item4.set_price(80)
+if item4.price < 100:
+    print("Affordable")
+else:
+    print("Expensive")
 
 
 
