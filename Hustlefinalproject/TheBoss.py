@@ -1,5 +1,7 @@
 # The Boss (Manager)
 from Blueprint import Workouts
+from Kind1 import CardioWorkouts
+from Kind2 import Liftworkout
 class workoutmanager:
     def __init__(self):
         self.workouts = []
@@ -38,10 +40,31 @@ class workoutmanager:
                 continue
 
             if choice == 1:
+                print("1. Regular Workout")
+                print("2. Cardio Workout")
+                print("3. Lift Workout")
+                
+                workout_type = int(input("Enter workout type: "))
+
                 name = input("Enter workout name: ")
-                runtime = int(input("Enter runtime: "), 20)
-                calories = int(input("Enter calories: "), 35)
-                workout = Workouts(name, runtime, calories)
+                runtime = int(input("Enter runtime: "))
+                calories = int(input("Enter calories: "))
+
+                if workout_type == 1:
+                    workout = Workouts(name, runtime, calories)
+                
+                elif workout_type == 2:
+                    intensity = input("Enter intensity: ")
+                    workout = CardioWorkouts(name, runtime, calories, intensity)
+
+                elif workout_type == 3:
+                    lift = input("Enter lift: ")
+                    workout = LiftWorkout(name, runtime, calories, lift)
+
+                else:
+                    print("Invalid workout type.")
+                    continue
+
                 self.add_workout(workout)
             elif choice == 2:
                 self.show_workouts()
